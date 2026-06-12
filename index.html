@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Legacy Books</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#F8F5F0;
+overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+background:#A8B89A;
+padding:20px;
+text-align:center;
+}
+
+.logo{
+width:200px;
+height:auto;
+}
+
+header h1{
+font-family:'Playfair Display',serif;
+font-size:60px;
+color:#D4A017;
+margin-top:10px;
+}
+
+.slogan{
+color:white;
+font-size:20px;
+font-style:italic;
+}
+
+/* SEARCH BAR */
+
+.search-bar{
+background:white;
+padding:15px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:15px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.search-bar input{
+width:60%;
+padding:12px;
+border-radius:30px;
+border:1px solid #ccc;
+}
+
+.search-btn{
+background:#D4A017;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:30px;
+cursor:pointer;
+}
+
+.cart-icon{
+font-size:28px;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* NAVBAR */
+
+nav{
+background:#8B6B4F;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:15px;
+font-weight:600;
+}
+
+nav a:hover{
+color:#D4A017;
+}
+
+/* SLIDER */
+
+.slider{
+position:relative;
+width:100%;
+height:550px;
+overflow:hidden;
+}
+
+.slide{
+display:none;
+position:relative;
+width:100%;
+height:550px;
+}
+
+.slide.active{
+display:block;
+}
+
+.slide img{
+width:100%;
+height:550px;
+object-fit:cover;
+}
+
+.prev,
+.next{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.5);
+color:white;
+border:none;
+padding:15px;
+font-size:25px;
+cursor:pointer;
+z-index:100;
+}
+
+.prev{
+left:10px;
+}
+
+.next{
+right:10px;
+}
+
+.prev:hover,
+.next:hover{
+background:#D4A017;
+}
+
+/* BANNER TEXT */
+
+.banner-text{
+position:absolute;
+top:50%;
+left:10%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.45);
+padding:30px;
+border-radius:15px;
+max-width:500px;
+color:white;
+}
+
+.banner-text h1{
+font-size:55px;
+margin-bottom:15px;
+}
+
+.banner-text p{
+font-size:22px;
+margin-bottom:20px;
+}
+
+.shop-btn{
+background:#D4A017;
+color:white;
+padding:12px 25px;
+text-decoration:none;
+border-radius:30px;
+font-weight:bold;
+}
+
+/* SECTION */
+
+.section-title{
+text-align:center;
+font-size:40px;
+color:#8B6B4F;
+margin:50px 0 30px;
+}
+
+/* COLLECTIONS */
+
+.collections{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+padding:20px;
+}
+
+.card{
+width:260px;
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.card h3{
+padding:15px;
+text-align:center;
+}
+
+/* BEST SELLERS */
+
+.books{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+padding:20px;
+}
+
+.book{
+width:220px;
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+text-align:center;
+transition:0.3s;
+}
+
+.book:hover{
+transform:translateY(-8px);
+}
+
+.book img{
+width:100%;
+height:300px;
+object-fit:cover;
+}
+
+.book h4{
+padding:10px;
+height:70px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.book button{
+background:#D4A017;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:25px;
+margin-bottom:15px;
+cursor:pointer;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+background:#D4A017;
+padding:60px;
+text-align:center;
+margin-top:50px;
+}
+
+.newsletter h2{
+color:white;
+margin-bottom:20px;
+}
+
+.newsletter p{
+color:white;
+margin-bottom:20px;
+}
+
+.newsletter input{
+padding:12px;
+width:300px;
+border:none;
+border-radius:25px;
+}
+
+.newsletter button{
+padding:12px 20px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+margin-left:10px;
+background:white;
+color:#8B6B4F;
+font-weight:bold;
+display:inline-block;
+}
+
+/* FOOTER */
+
+footer{
+background:#8B6B4F;
+color:white;
+display:flex;
+justify-content:space-around;
+flex-wrap:wrap;
+padding:40px;
+}
+
+.footer-column h3{
+margin-bottom:15px;
+}
+
+.footer-column p{
+margin-bottom:8px;
+}
+
+/* CART */
+
+.cart-sidebar{
+position:fixed;
+top:0;
+right:-350px;
+width:350px;
+height:100%;
+background:white;
+box-shadow:-2px 0 10px rgba(0,0,0,0.2);
+padding:20px;
+transition:0.4s;
+z-index:999;
+}
+
+.cart-sidebar.active{
+right:0;
+}
+
+.close-cart{
+font-size:25px;
+cursor:pointer;
+float:right;
+}
+
+#payment-method{
+width:100%;
+padding:10px;
+margin-top:15px;
+margin-bottom:15px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+#card-number{
+width:100%;
+padding:10px;
+margin-bottom:15px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+.checkout{
+width:100%;
+padding:12px;
+background:#D4A017;
+border:none;
+color:white;
+cursor:pointer;
+margin-top:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.search-bar input{
+width:50%;
+}
+
+nav a{
+display:block;
+margin:10px 0;
+}
+
+.slider,
+.slide,
+.slide img{
+height:300px;
+}
+
+.banner-text{
+left:5%;
+max-width:300px;
+padding:15px;
+}
+
+.banner-text h1{
+font-size:28px;
+}
+
+.banner-text p{
+font-size:15px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<img src="logo.jpg" class="logo">
+
+<h1>Legacy Books</h1>
+
+<p class="slogan">
+Preserving Stories, Inspiring Generations
+</p>
+
+</header>
+
+<div class="search-bar">
+
+<input type="text" placeholder="Search books...">
+
+<button class="search-btn">🔍</button>
+
+<div class="cart-icon" onclick="openCart()">
+🛒
+</div>
+
+</div>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#">About Us</a>
+<a href="#">Fiction</a>
+<a href="#">Non-Fiction</a>
+<a href="#">Children's Books</a>
+<a href="#">Best Sellers</a>
+<a href="#">Stationery</a>
+<a href="#">Others</a>
+
+</nav>
+
+<!-- SLIDER -->
+
+<div class="slider">
+
+<button class="prev" onclick="prevSlide()">❮</button>
+<button class="next" onclick="nextSlide()">❯</button>
+
+<div class="slide active">
+
+<img src="banner1.jpg">
+
+<div class="banner-text">
+<h1>MID-YEAR BOOK SALE</h1>
+<p>Up To 50% Off Selected Books</p>
+<a href="#" class="shop-btn">Shop Now</a>
+</div>
+
+</div>
+
+<div class="slide">
+
+<img src="banner2.jpg">
+
+<div class="banner-text">
+<h1>NEW ARRIVALS</h1>
+<p>Discover Your Next Favourite Book</p>
+<a href="#" class="shop-btn">Explore Now</a>
+</div>
+
+</div>
+
+<div class="slide">
+
+<img src="banner3.jpg">
+
+<div class="banner-text">
+<h1>CHILDREN'S COLLECTION</h1>
+<p>Fun & Educational Books For Kids</p>
+<a href="#" class="shop-btn">Shop Now</a>
+</div>
+
+</div>
+
+<div class="slide">
+
+<img src="banner4.jpg">
+
+<div class="banner-text">
+<h1>BEST SELLERS</h1>
+<p>Most Loved Books This Month</p>
+<a href="#" class="shop-btn">View Collection</a>
+</div>
+
+</div>
+
+</div>
+
+<h2 class="section-title">Featured Collections</h2>
+
+<div class="collections">
+
+<div class="card">
+<img src="fiction.jpg">
+<h3>Fiction</h3>
+</div>
+
+<div class="card">
+<img src="nonfiction.jpg">
+<h3>Non-Fiction</h3>
+</div>
+
+<div class="card">
+<img src="children.jpg">
+<h3>Children's Books</h3>
+</div>
+
+<div class="card">
+<img src="stationery.jpg">
+<h3>Stationery</h3>
+</div>
+
+</div>
+
+<h2 class="section-title">Best Sellers</h2>
+
+<div class="books">
+
+<div class="book">
+<img src="book1.jpg">
+<h4>The Last Vampire</h4>
+<button onclick="addToCart('The Last Vempire')">Add To Cart</button>
+</div>
+
+<div class="book">
+<img src="book2.jpg">
+<h4>The Burial Tide</h4>
+<button onclick="addToCart('The Burial Tide')">Add To Cart</button>
+</div>
+
+<div class="book">
+<img src="book3.jpg">
+<h4>The Summer Second Chances</h4>
+<button onclick="addToCart('The Summer Second Chances')">Add To Cart</button>
+</div>
+
+<div class="book">
+<img src="book4.jpg">
+<h4>Odder</h4>
+<button onclick="addToCart('Odder')">Add To Cart</button>
+</div>
+
+</div>
+
+<div class="newsletter">
+
+<h2>Subscribe To Our Newsletter</h2>
+
+<p>
+Get the latest updates on new arrivals,
+best sellers and exclusive promotions.
+</p>
+
+<input type="email" placeholder="Enter your email">
+
+<button onclick="subscribeNewsletter()">Subscribe</button>
+
+</div>
+
+<footer>
+
+<div class="footer-column">
+<h3>Customer Service</h3>
+<p>Contact Us</p>
+<p>FAQ</p>
+<p>Order Guide</p>
+</div>
+
+<div class="footer-column">
+<h3>Information</h3>
+<p>About Us</p>
+<p>Privacy Policy</p>
+<p>Promotions</p>
+</div>
+
+<div class="footer-column">
+<h3>Legacy Books</h3>
+<p>legacybooks@gmail.com</p>
+<p>03-12345678</p>
+</div>
+
+</footer>
+
+<!-- CART -->
+
+<div class="cart-sidebar" id="cart">
+
+<span class="close-cart" onclick="closeCart()">✖</span>
+
+<h2>Shopping Cart</h2>
+
+<div id="cart-items"></div>
+
+<select id="payment-method">
+
+<option value="">Select Payment Method</option>
+
+<option>Credit Card</option>
+
+<option>Debit Card</option>
+
+<option>Online Banking</option>
+
+<option>E-Wallet</option>
+
+</select>
+
+<input type="text" id="card-number"
+placeholder="Enter Card Number">
+
+<button class="checkout" onclick="checkout()">
+Checkout
+</button>
+
+</div>
+
+<script>
+
+let slides=document.querySelectorAll(".slide");
+let current=0;
+
+setInterval(function(){
+
+slides[current].classList.remove("active");
+
+current++;
+
+if(current>=slides.length){
+current=0;
+}
+
+slides[current].classList.add("active");
+
+},3000);
+
+function openCart(){
+document.getElementById("cart").classList.add("active");
+}
+
+function closeCart(){
+document.getElementById("cart").classList.remove("active");
+}
+
+function nextSlide(){
+
+slides[current].classList.remove("active");
+
+current++;
+
+if(current>=slides.length){
+current=0;
+}
+
+slides[current].classList.add("active");
+
+}
+
+function prevSlide(){
+
+slides[current].classList.remove("active");
+
+current--;
+
+if(current<0){
+current=slides.length-1;
+}
+
+slides[current].classList.add("active");
+
+}
+
+function addToCart(book){
+
+let item=document.createElement("p");
+
+item.innerHTML="📚 " + book;
+
+document.getElementById("cart-items").appendChild(item);
+
+alert(book + " added to cart!");
+
+}
+
+function subscribeNewsletter(){
+
+let email =
+document.querySelector('.newsletter input').value;
+
+if(email==""){
+
+alert("Please enter your email!");
+
+}
+else{
+
+alert(
+"Thank you for subscribing to Legacy Books Newsletter! 📚"
+);
+
+document.querySelector('.newsletter input').value="";
+
+}
+
+}
+
+function checkout(){
+
+let paymentMethod =
+document.getElementById("payment-method").value;
+
+let cardNumber =
+document.getElementById("card-number").value;
+
+if(document.getElementById("cart-items").innerHTML==""){
+
+alert("Your cart is empty!");
+
+}
+
+else if(paymentMethod==""){
+
+alert("Please select a payment method!");
+
+}
+
+else if(cardNumber==""){
+
+alert("Please enter your card number!");
+
+}
+
+else{
+
+alert(
+"Payment Successful via "
++ paymentMethod +
+"! Thank you for shopping at Legacy Books 📚"
+);
+
+document.getElementById("cart-items").innerHTML="";
+document.getElementById("payment-method").value="";
+document.getElementById("card-number").value="";
+
+}
+
+}
+
+</script>
